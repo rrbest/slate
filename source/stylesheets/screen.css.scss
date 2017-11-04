@@ -41,7 +41,7 @@ html, body {
 
 #toc > ul > li > a > span {
   float: right;
-  background-color: #2484FF;
+  background-color: #2897c4;
   border-radius: 40px;
   width: 20px;
 }
@@ -58,7 +58,8 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
+  font-size: 1.0625rem;
+  line-height: 1.8;
   font-weight: bold;
 
   // language selector for mobile devices
@@ -205,7 +206,7 @@ html, body {
   white-space: nowrap;
   text-overflow: ellipsis;
   text-decoration: none;
-  color: #fff;
+  color: #444;
   transition-property: background;
   transition-timing-function: linear;
   transition-duration: 130ms;
