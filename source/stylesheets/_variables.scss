@@ -31,9 +31,9 @@ $nav-subitem-bg: #f4f4f4 !default;
 $nav-active-bg: #d1d1d1 !default;
 $nav-active-parent-bg: #2897c4 !default; // parent links of the current section
 $lang-select-border: #000 !default;
-$lang-select-bg: #202333 !default;
+$lang-select-bg: #17191B !default;
 $lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
-$lang-select-pressed-bg: #202333  !default; // color of language tab bg when mouse is pressed
+$lang-select-pressed-bg: #17191B  !default; // color of language tab bg when mouse is pressed
 $main-bg: #fefefe !default;
 $aside-notice-bg: #8fbcd4 !default;
 $aside-warning-bg: #c97a7e !default;
@@ -66,8 +66,8 @@ $code-annotation-padding: 13px !default; // padding inside code annotations
 $h1-margin-bottom: 21px !default; // padding under the largest header tags
 $tablet-width: 930px !default; // min width before reverting to tablet size
 $phone-width: $tablet-width - $nav-width !default; // min width before reverting to mobile size
-$nav-text-size: 1.6rem;
-$nav-sub-text-size: 1.2rem;
+$nav-text-size: 1.0rem;
+$nav-sub-text-size: .9rem;
 
 // FONTS
 ////////////////////
@@ -88,7 +88,7 @@ $nav-sub-text-size: 1.2rem;
 
 %default-font {
   font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
-  font-size: 1.0625rem;
+  font-size: 17px;
   line-height: 1.8;
 }
 
@@ -98,7 +98,7 @@ $nav-sub-text-size: 1.2rem;
 
 %code-font {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 1.0625rem;
+  font-size: 17px;
   line-height: 1.3;
 }
 
