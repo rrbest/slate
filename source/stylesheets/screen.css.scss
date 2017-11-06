@@ -58,9 +58,8 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 1.0625rem;
-  line-height: 1.8;
-  font-weight: bold;
+  font-size: $nav-text-size;
+
 
   // language selector for mobile devices
   .lang-selector {
@@ -84,12 +83,13 @@ html, body {
       background: $nav-bg;
       border-width: 0 0 1px 0;
       border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
+      padding: 9px 0 9px 30px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 30;
       outline: none;
       color: $nav-text;
+      font-size: $nav-text-size * .66;
       border-radius: 0; /* ios has a default border radius */
     }
 
@@ -144,7 +144,7 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 28px;
+    line-height: $nav-parent-indent;
   }
 
   li {
@@ -174,7 +174,7 @@ html, body {
 
   .toc-h2 {
     padding-left: $nav-padding + $nav-indent;
-    font-size: 12px;
+    font-size: $nav-sub-text-size;
   }
 
   .toc-footer {
@@ -355,7 +355,7 @@ html, body {
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
     border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
     background-color: #fdfdfd;
   }
 
