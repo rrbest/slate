@@ -58,7 +58,7 @@ html, body {
   width: $nav-width;
   background-color: $nav-bg;
   font-size: $nav-text-size;
-  border-right: 1px solid #d1d1d1;
+  border-right: 1px solid #eee;
 
 
   // language selector for mobile devices
@@ -323,6 +323,8 @@ html, body {
   position: relative;
   z-index: 30;
 
+
+
   &:after {
     content: '';
     display: block;
@@ -495,6 +497,16 @@ html, body {
   aside.success:before {
     @extend %icon-ok-sign;
   }
+
+  a {
+    color: $nav-active-parent-bg;
+  }
+
+  a:hover {
+    color: $nav-active-parent-bg * .7;
+  }
+
+
 
   .search-highlight {
     padding: 2px;
