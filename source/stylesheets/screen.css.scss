@@ -212,6 +212,8 @@ html, body {
   transition-duration: 130ms;
 }
 
+
+
 // button to show navigation on mobile devices
 #nav-button {
   span {
@@ -276,7 +278,8 @@ html, body {
   .lang-selector {
     position: fixed;
     z-index: 50;
-    border-bottom: 5px solid $lang-select-active-bg;
+    padding: 12px;
+
   }
 }
 
@@ -284,27 +287,35 @@ html, body {
   background-color: $lang-select-bg;
   width: 100%;
   font-weight: bold;
+
   a {
-    display: block;
+    display: inline;
+    margin-right: 5px;
     float:left;
+    font-size: $lang-text-size;
     color: $lang-select-text;
     text-decoration: none;
-    padding: 0 10px;
-    line-height: 30px;
-    outline: 0;
+    padding: 10px;
+    line-height: 20px;
+    border: 1px solid $code-bg;
 
     &:active, &:focus {
       background-color: $lang-select-pressed-bg;
+      border: 1px solid $examples-bg;
+      border-radius: $lang-border-radius;
       color: $lang-select-pressed-text;
     }
 
     &:active, &:hover {
-      background-color: $nav-active-parent-bg;
-      color: $nav-subitem-bg;
+      border: 1px solid $examples-bg * 1.3;
+      border-radius: $lang-border-radius;
+      color: $lang-select-text;
     }
 
     &.active {
       background-color: $lang-select-active-bg;
+      border: 1px solid $examples-bg;
+      border-radius: $lang-border-radius;
       color: $lang-select-active-text;
     }
   }
@@ -315,6 +326,7 @@ html, body {
     display: block;
   }
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // CONTENT STYLES

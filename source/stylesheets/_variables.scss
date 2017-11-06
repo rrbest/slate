@@ -32,8 +32,8 @@ $nav-active-bg: #d1d1d1 !default;
 $nav-active-parent-bg: #2897c4 !default; // parent links of the current section
 $lang-select-border: #000 !default;
 $lang-select-bg: #17191B !default;
-$lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
-$lang-select-pressed-bg: $lang-select-active-bg  !default; // color of language tab bg when mouse is pressed
+$lang-select-active-bg: $nav-active-parent-bg !default; // feel free to change this to blue or something
+$lang-select-pressed-bg: $examples-bg  !default; // color of language tab bg when mouse is pressed
 $main-bg: #fefefe !default;
 $aside-notice-bg: $main-bg !default;
 $aside-warning-bg: $main-bg !default;
@@ -68,6 +68,8 @@ $tablet-width: 930px !default; // min width before reverting to tablet size
 $phone-width: $tablet-width - $nav-width !default; // min width before reverting to mobile size
 $nav-text-size: 1.0rem;
 $nav-sub-text-size: .9rem;
+$lang-text-size: 14px;
+$lang-border-radius: 10px;
 
 // FONTS
 ////////////////////
