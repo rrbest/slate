@@ -298,6 +298,11 @@ html, body {
       color: $lang-select-pressed-text;
     }
 
+    &:active, &:hover {
+      background-color: $nav-active-parent-bg;
+      color: $nav-subitem-bg;
+    }
+
     &.active {
       background-color: $lang-select-active-bg;
       color: $lang-select-active-text;
@@ -351,7 +356,9 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 25px;
+    font-size: 24px;
+    font-weight: 100;
+    color: #292e31;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
@@ -499,11 +506,12 @@ html, body {
   }
 
   a {
-    color: $nav-active-parent-bg;
+    color: $url-text;
+    text-decoration: none;
   }
 
   a:hover {
-    color: $nav-active-parent-bg * .7;
+    color: $url-text * .7;
   }
 
 
