@@ -550,8 +550,8 @@ html, body {
     color: #fff;
 
 
-    margin: 10px 0;
-    width: $examples-width;
+    margin: 1%;
+    width: $examples-width - 2%;
 
     float:right;
     clear:right;
@@ -579,7 +579,7 @@ html, body {
   blockquote {
     &>p {
       background-color: $code-annotation-bg;
-      padding: $code-annotation-padding 20px;
+      padding: $code-annotation-padding 0px;
       color: #eee;
     }
   }
