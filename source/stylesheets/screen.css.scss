@@ -545,12 +545,13 @@ html, body {
 
 .content {
   pre, blockquote {
-    background-color: $code-bg*.85;
+    background-color: $code-bg;
     border-radius:$lang-border-radius;
     color: #fff;
 
-    margin: 10px;
-    width: $examples-width * .97;
+
+    margin: 10px 0;
+    width: $examples-width;
 
     float:right;
     clear:right;
@@ -578,7 +579,7 @@ html, body {
   blockquote {
     &>p {
       background-color: $code-annotation-bg;
-      padding: $code-annotation-padding 2em;
+      padding: $code-annotation-padding 20px;
       color: #eee;
     }
   }
