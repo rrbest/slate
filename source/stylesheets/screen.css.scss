@@ -297,7 +297,7 @@ html, body {
     text-decoration: none;
     padding: 10px;
     line-height: 20px;
-    border: 1px solid $code-bg;
+    border: 1px solid $lang-select-bg*1.4;
 
     &:active, &:focus {
       background-color: $lang-select-pressed-bg;
@@ -307,14 +307,14 @@ html, body {
     }
 
     &:active, &:hover {
-      border: 1px solid $examples-bg * 1.3;
+      border: 1px solid $lang-select-bg * 1.8;
       border-radius: $lang-border-radius;
       color: $lang-select-text;
     }
 
     &.active {
       background-color: $lang-select-active-bg;
-      border: 1px solid $examples-bg;
+      border: 1px solid $lang-select-bg;
       border-radius: $lang-border-radius;
       color: $lang-select-active-text;
     }
