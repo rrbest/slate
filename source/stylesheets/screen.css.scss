@@ -298,6 +298,7 @@ html, body {
     padding: 10px;
     line-height: 20px;
     border: 1px solid $lang-select-bg*1.4;
+    border-radius: $lang-border-radius;
 
     &:active, &:focus {
       background-color: $lang-select-pressed-bg;
