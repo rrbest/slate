@@ -524,7 +524,8 @@ html, body {
   }
 
   a:hover {
-    color: $url-text * .7;
+    color: $url-text;
+    text-decoration: underline;;
   }
 
 
