@@ -471,8 +471,8 @@ html, body {
 
   code {
     background-color: rgba(0,0,0,0.05);
-    padding: 3px;
-    border-radius: 3px;
+    padding: 3px 7px;
+    border-radius: 6px;
     @extend %break-words;
     @extend %code-font;
   }
@@ -545,11 +545,12 @@ html, body {
 
 .content {
   pre, blockquote {
-    background-color: $code-bg;
+    background-color: $code-bg*.85;
+    border-radius:$lang-border-radius;
     color: #fff;
 
-    margin: 0;
-    width: $examples-width;
+    margin: 10px;
+    width: $examples-width * .97;
 
     float:right;
     clear:right;
