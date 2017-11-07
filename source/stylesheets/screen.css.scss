@@ -295,14 +295,13 @@ html, body {
     font-size: $lang-text-size;
     color: $lang-select-text;
     text-decoration: none;
-    padding: 10px;
+    padding: 10px 16px;
     line-height: 20px;
     border: 1px solid $lang-select-bg*1.4;
     border-radius: $lang-border-radius;
 
     &:active, &:focus {
-      background-color: $lang-select-pressed-bg;
-      border: 1px solid $examples-bg;
+      background-color: $lang-select-bg * 1.4;
       border-radius: $lang-border-radius;
       color: $lang-select-pressed-text;
     }
