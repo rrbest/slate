@@ -1,8 +1,10 @@
 # ACES Encoded Listener API Docs
 
-This repo is the source for the ACES Encoded Listener API Docs website built 
-with [Slate](https://github.com/lord/slate). If you find an error in our documentation,
-please feel free to open up a github issue and we'll get it fixed as soon as possible.
+This repo is the source for the [ACES Encoded Listener API Docs website](https://ark-aces.github.io/aces-encoded-listener-docs/)
+built with [Slate](https://github.com/lord/slate).
+
+If you find an error in our documentation, please feel free to open up a github 
+issue and we'll get it fixed as soon as possible.
 
 
 ## Getting Started
