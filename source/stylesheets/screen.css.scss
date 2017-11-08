@@ -42,14 +42,13 @@ html, body {
 
 #toc > ul > li > a > span {
   float: right;
-  background-color: #2484FF;
+  background-color: #2897c4;
   border-radius: 40px;
   width: 20px;
 }
 
 .toc-wrapper {
   transition: left 0.3s ease-in-out;
-
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
@@ -59,8 +58,9 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
-  font-weight: bold;
+  font-size: $nav-text-size;
+  border-right: 1px solid #eee;
+
 
   // language selector for mobile devices
   .lang-selector {
@@ -84,12 +84,13 @@ html, body {
       background: $nav-bg;
       border-width: 0 0 1px 0;
       border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
+      padding: 9px 0 9px 30px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 30;
       outline: none;
       color: $nav-text;
+      font-size: $nav-text-size * .66;
       border-radius: 0; /* ios has a default border radius */
     }
 
@@ -144,7 +145,7 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 28px;
+    line-height: $nav-parent-indent;
   }
 
   li {
@@ -174,7 +175,7 @@ html, body {
 
   .toc-h2 {
     padding-left: $nav-padding + $nav-indent;
-    font-size: 12px;
+    font-size: $nav-sub-text-size;
   }
 
   .toc-footer {
@@ -206,11 +207,13 @@ html, body {
   white-space: nowrap;
   text-overflow: ellipsis;
   text-decoration: none;
-  color: #fff;
+  color: #444;
   transition-property: background;
   transition-timing-function: linear;
   transition-duration: 130ms;
 }
+
+
 
 // button to show navigation on mobile devices
 #nav-button {
@@ -276,7 +279,8 @@ html, body {
   .lang-selector {
     position: fixed;
     z-index: 50;
-    border-bottom: 5px solid $lang-select-active-bg;
+    padding: 12px;
+
   }
 }
 
@@ -284,22 +288,35 @@ html, body {
   background-color: $lang-select-bg;
   width: 100%;
   font-weight: bold;
+
   a {
-    display: block;
+    display: inline;
+    margin-right: 5px;
     float:left;
+    font-size: $lang-text-size;
     color: $lang-select-text;
     text-decoration: none;
-    padding: 0 10px;
-    line-height: 30px;
-    outline: 0;
+    padding: 10px 16px;
+    line-height: 20px;
+    border: 1px solid $lang-select-bg*1.4;
+    border-radius: $lang-border-radius;
 
     &:active, &:focus {
-      background-color: $lang-select-pressed-bg;
+      background-color: $lang-select-bg * 1.4;
+      border-radius: $lang-border-radius;
       color: $lang-select-pressed-text;
+    }
+
+    &:active, &:hover {
+      border: 1px solid $lang-select-bg * 1.8;
+      border-radius: $lang-border-radius;
+      color: $lang-select-text;
     }
 
     &.active {
       background-color: $lang-select-active-bg;
+      border: 1px solid $lang-select-bg;
+      border-radius: $lang-border-radius;
       color: $lang-select-active-text;
     }
   }
@@ -310,6 +327,7 @@ html, body {
     display: block;
   }
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // CONTENT STYLES
@@ -322,6 +340,8 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 30;
+
+
 
   &:after {
     content: '';
@@ -349,13 +369,15 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 25px;
+    font-size: 24px;
+    font-weight: 100;
+    color: #292e31;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
     border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
     background-color: #fdfdfd;
   }
 
@@ -453,8 +475,8 @@ html, body {
 
   code {
     background-color: rgba(0,0,0,0.05);
-    padding: 3px;
-    border-radius: 3px;
+    padding: 3px 7px;
+    border-radius: 6px;
     @extend %break-words;
     @extend %code-font;
   }
@@ -499,6 +521,18 @@ html, body {
     @extend %icon-ok-sign;
   }
 
+  a {
+    color: $url-text;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $url-text;
+    text-decoration: underline;;
+  }
+
+
+
   .search-highlight {
     padding: 2px;
     margin: -3px;
@@ -516,10 +550,12 @@ html, body {
 .content {
   pre, blockquote {
     background-color: $code-bg;
+    border-radius:$lang-border-radius;
     color: #fff;
 
-    margin: 0;
-    width: $examples-width;
+
+    margin: 1%;
+    width: $examples-width - 2%;
 
     float:right;
     clear:right;
@@ -547,7 +583,7 @@ html, body {
   blockquote {
     &>p {
       background-color: $code-annotation-bg;
-      padding: $code-annotation-padding 2em;
+      padding: $code-annotation-padding 4px;
       color: #eee;
     }
   }
