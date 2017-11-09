@@ -652,3 +652,15 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+
+// Custom menu-sub headings:
+
+.toc-link[data-title="Get Started"],
+.toc-link[data-title="API Reference"] {
+  margin-top: 1em;
+  font-weight: bold;
+}
+.toc-link[data-title="Get Started"] {
+  margin-top: 0.5em;
+}
