@@ -9,6 +9,17 @@ url="$url&continuation=839729837520395702375023"
 curl -X GET "$url"  
 ```
 
+```java
+EncodedListenerClient client = new EncodedListenerClient("http://localhost");
+
+SubscriptionPageRequest request = new SubscriptionPageRequest();
+request.setPageSize(100);
+request.setPage(4);
+request.setContinuation("933502938509238509283059");
+
+Page<Subscription> subscriptionsPage = client.getSubscriptionsPage(request);
+```
+
 ```json
 {
   "pageSize": "100",
