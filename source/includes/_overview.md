@@ -5,7 +5,7 @@
 curl 'http://bitcoin-encoded-listener.domain.com' \
 -X POST \
 -d '{
-   "host": "http://consumer.domain.com/handler",
+   "callbackUrl": "http://consumer.domain.com/handler",
    "minConfirmations": 5
 }'
 ```
@@ -16,7 +16,7 @@ EncodedListenerClient client = new EncodedListenerClient(
 );
 
 SubscriptionRequest request = new SubscriptionRequest();
-request.setHost("http://consumer.domain.com/handler");
+request.setCallbackUrl("http://consumer.domain.com/handler");
 request.setMinConfirmations(5);
 
 client.createSubscription(request);
@@ -45,3 +45,21 @@ client.createSubscription(request);
 Consumers must subscribe to an Encoded Listener API instance to start receiving blockchain
 events from the Encoded Listener.
 
+Once a consumer has been subscribed, the Encoded Listener will start
+sending `POST` requests to the registered endpoint for every new blockchain transaction
+event.
+
+If the consumer fails to respond to the `POST` with a `200` response (for example if there is
+an error processing the event or the server times out), the Encoded Listener will try to resend
+the request as configured by the Encoded Listener.
+
+<img src="images/figures/encoded-listener-seq-diagram.png" alt="Encoded Listener Sequence Diagram" />
+
+If the Encoded Listener tries to post too many events to a consumer without success,
+the Encoded Listener can cancel the subscription and stop sending events to the consumer.
+
+Consumers can also unsubscribe directly by sending a `POST` request to the Unsubscribe
+endpoint.
+
+Developers of Encoded Listener APIs can view our sample
+[Ark Encoded Listener implementation](https://github.com/ark-aces/aces-encoded-listener-ark).

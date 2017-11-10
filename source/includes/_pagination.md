@@ -28,7 +28,7 @@ Page<Subscription> subscriptionsPage = client.getSubscriptionsPage(request);
   "items": [
     {
       "id": "1",
-      "host": "http://localhost:8080/handler",
+      "callbackUrl": "http://localhost/handler",
       "minConfirmations": 5,
       "createdAt": "2017-11-01T00:00:00.000Z"
     }

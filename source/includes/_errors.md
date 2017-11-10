@@ -64,7 +64,7 @@ invalidRequest    | The request body is invalid. See `Validation Errors` below.
 curl 'http://localhost/subscriptions' \
   -X POST \
   -d '{
-     "host": "not-a-url"
+     "callbackUrl": "not-a-url"
   }'
 ```
 
@@ -75,7 +75,7 @@ curl 'http://localhost/subscriptions' \
   "message": "Request is invalid.",
   "fieldErrors": [
     {
-      "field": "host",
+      "field": "callbackUrl",
       "code": "invalidUrl",
       "message": "The url given is invalid."
     },
