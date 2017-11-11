@@ -2,65 +2,156 @@
 # API Reference
 
 
-# Subscription
-
-
-
+# Subscriptions
+ The Subscribers endpoint allows subscriber to register their node to receive blockchain events from the Encoded Listener.
 
 ## Create a Subscription
 
+  ```shell
+    curl -X POST 'http://localhost:8080/subscriptions'
+  ```
+
+  ```javascript
+    const request = require('request');
+    request(
+        'http://localhost:8080/subscriptions/', 
+        { json: true }, 
+        (err, res, body) => {
+          console.log(body.explanation);
+        }
+    );
+  ```
+
+  The request to create a new Subscription.
+
+### Parameters
+
+  Parameter        | Type    | Description 
+  ---------------- | ------- | ----------- 
+  callbackUrl      | string  | Target target URL to POST Encoded Listener events to.
+  minConfirmations | integer | Confirmations required before event is sent to subscriber.
+
 ### HTTP Request
+  `POST http://localhost:8080/subscriptions`
 
-`POST http://localhost:8080/subscriptions`
+## Get a Subscription
 
-### URL Parameters
+  ```shell
+    curl -X GET 'http://localhost/subscriptions/{id}'
+  ```
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+  Get a Subscription by identifier.
+
+### Parameters
+
+  Parameter       | In   | Type    | Required | Description             
+  --------------- | ---- | ------- | -------- | ----------------------- 
+  name            | path | string  | True     | Subscription identifier
+
+### HTTP Request
+  `GET http://localhost:8080/subscriptions/{id}`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Event
+
+## List Subscription Events
+
+  ```shell
+  curl -X GET 'http://localhost:8080/subscriptions/{id}/events'
+  ```
+
+  ```javascript
+  const request = require('request');
+  request(
+      'http://localhost:8080/subscriptions/' + subscriptionId + '/events', 
+      { json: true }, 
+      (err, res, body) => {
+        console.log(body.explanation);
+      }
+  );
+  ```
+
+  Gets a page of Subscription Events.
+
+### Parameters
+
+  Parameter       | In    | Type    | Required | Default | Description             
+  --------------- | ----  | ------- | ----     | ----    | ----------------------- 
+  name            | path  | string  | True     |         | Subscription identifier 
+  pageSize        | query | integer |          | 100     | Number of items to return per page. 
+  page            | query | integer |          |         | Zero-offset page number to return.
+  continuation    | query | string  |          |         | Continuation param for fetching next page.
+
+### HTTP Request
+  `GET http://localhost:8080/subscriptions/{id}/events`
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Unsubscribe
 
 ## Create an Unsubscribe
 
-```shell
-curl -X POST 'http://localhost:8080/subscriptions/{id}/unsubscribes'
-```
+  ```shell
+  curl -X POST 'http://localhost:8080/subscriptions/{id}/unsubscribes'
+  ```
 
-```javascript
-const request = require('request');
-request(
-    'http://localhost:8080/subscriptions/' + subscriptionId + '/unsubscribes', 
-    { json: true }, 
-    (err, res, body) => {
-      console.log(body.explanation);
-    }
-);
-```
+  ```javascript
+  const request = require('request');
+  request(
+      'http://localhost:8080/subscriptions/' + subscriptionId + '/unsubscribes', 
+      { json: true }, 
+      (err, res, body) => {
+        console.log(body.explanation);
+      }
+  );
+  ```
 
-> Returned response:
+  Unsubscribes an active Subscription.
 
-```json
-{
-  "id": "329857298735983",
-  "created_at": "2017-11-08T05:34:54.267Z"
-}
-```
+  > Returned response:
 
-This endpoint deletes a specific kitten.
+  ```json
+  {
+    "id": "329857298735983",
+    "created_at": "2017-11-08T05:34:54.267Z"
+  }
+  ```
+
+### Parameters
+
+  Parameter       | In    | Type    | Required | Description             
+  --------------- | ----  | ------- | ----     | ----------------------- 
+  id              | path  | string  | True     | Subscription Identifier
 
 ### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+  `POST http://localhost:8080/subscriptions/{id}/unsubscribes`
 
 
 
@@ -71,129 +162,14 @@ ID | The ID of the kitten to delete
 
 # Health
 
-## Get Health
+## Get Health of node.
 
-
-
-
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
+  ```shell
+    curl -X GET 'http://localhost:8080/status'
+  ```
+  Get application health information.
 
 ### HTTP Request
+  `GET http://localhost:8080/status`
 
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
 
