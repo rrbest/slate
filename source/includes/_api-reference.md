@@ -10,7 +10,6 @@
   ```shell
     curl -X POST 'http://localhost:8080/subscriptions'
   ```
-
   ```javascript
     const request = require('request');
     request(
@@ -21,6 +20,17 @@
         }
     );
   ```
+  > Returned response:
+
+  ```json
+    {
+      "id": "329857298735983",
+      "createdAt": "2017-11-08T05:34:54.267Z",
+      "status": "active"
+    }
+```
+
+
 
   The request to create a new Subscription.
 
@@ -38,6 +48,14 @@
 
   ```shell
     curl -X GET 'http://localhost/subscriptions/{id}'
+  ```
+  > Returned response:
+
+  ```json
+    {
+      "callbackUrl": "329857298735983",
+      "minConfirmations": "1"
+    }
   ```
 
   Get a Subscription by identifier.
@@ -75,7 +93,6 @@
   ```shell
   curl -X GET 'http://localhost:8080/subscriptions/{id}/events'
   ```
-
   ```javascript
   const request = require('request');
   request(
@@ -85,6 +102,17 @@
         console.log(body.explanation);
       }
   );
+  ```
+  > Returned response:
+
+  ```json
+    {
+      "id": "329857298735983",
+      "createdAt": "2017-11-08T05:34:54.267Z",
+      "status": "delivered",
+      "tries": "1",
+      "data": "data"
+    }
   ```
 
   Gets a page of Subscription Events.
@@ -132,9 +160,6 @@
       }
   );
   ```
-
-  Unsubscribes an active Subscription.
-
   > Returned response:
 
   ```json
@@ -143,6 +168,8 @@
     "created_at": "2017-11-08T05:34:54.267Z"
   }
   ```
+
+  Unsubscribes an active Subscription.
 
 ### Parameters
 
@@ -166,6 +193,14 @@
 
   ```shell
     curl -X GET 'http://localhost:8080/status'
+  ```
+
+  > Returned response:
+
+  ```json
+  {
+    "status": "up"
+  }
   ```
   Get application health information.
 
